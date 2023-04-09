@@ -17,3 +17,7 @@ body{
   background-color: var(---background);
   color: #fff;
 }
+
+.green{
+  color: #01be96;
+}
