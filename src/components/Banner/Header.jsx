@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { GiCandleFlame } from "react-icons/gi";
 
 const Header = () => {
+  const [bar, setBar] = useState(false);
   return (
-    <Container>
+    <Container bar={bar}>
       <Logo>
         <span className="green">
           <GiCandleFlame />
@@ -28,7 +29,7 @@ const Header = () => {
           <a href="#">Porfolio</a>
         </span>
       </Nav>
-      <div className="bar">
+      <div onClick={() => setBar(!bar)} className="bars">
         <div className="bar"></div>
       </div>
     </Container>
@@ -48,11 +49,42 @@ const Container = styled.div`
   @media (max-width: 763px) {
     width: 90%;
   }
+  .bars {
+    display: none;
+  }
   @media (max-width: 640px) {
-    .bars{
-        width: 40px;
-        height: 40px;
-        border:1px solid #fff;
+    .bars {
+      width: 40px;
+      height: 40px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      .bar {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: ${(props) => (props.bar ? "transparent" : "#fff")};
+        transition: all 400ms ease-in-out;
+        ::before,
+        :after {
+          content: "";
+          width: 100%;
+          height: 2px;
+          background: #fff;
+          position: absolute;
+        }
+        :before {
+          transform: ${(props) =>
+            props.bar ? "rotate(45deg)" : "translateY(10px)"};
+          transition: all 400ms ease-in-out;
+        }
+        :before {
+          transform: ${(props) =>
+            props.bar ? "rotate(-45deg)" : "translateY(-10px)"};
+          transition: all 400ms ease-in-out;
+        }
+      }
     }
   }
 `;
@@ -69,20 +101,21 @@ const Logo = styled.div`
   }
 `;
 const Nav = styled.div`
-    @media(max-width:640px){
-        position: absolute;
-        display: flex;
-        flex-direction: column;
-        background-color: #01be96;
-        inset:0;
-        justify-content: center;
-        align-items: center;
-        font-size: 2rem;
-        gap: 2rem;
-        font-weight: 700;
-        height: 0;
-        over-flow: hidden;
-    }
+  @media (max-width: 640px) {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    background-color: #01be96;
+    inset: 0;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    gap: 2rem;
+    font-weight: 700;
+    height: ${(props) => (props.bar ? "100vh" : 0)};
+    transition: height 400ms ease-in-out;
+    over-flow: hidden;
+  }
   span {
     margin: 20px;
     a {
