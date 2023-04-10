@@ -53,14 +53,20 @@ export const ProfComponent = () => {
 
 export default ProfComponent;
 
-// structure
 const Container = styled.div`
   display: flex;
   gap: 2rem;
-  padding-top: 2rem;
+  padding-top: 3rem;
   width: 80%;
   max-width: 1280px;
   margin: 0 auto;
+  z-index: 1;
+  @media (max-width: 840px) {
+    width: 90%;
+  }
+  @media (max-width: 640px) {
+    flex-direction: column;
+  }
 `;
 const Texts = styled.div`
   flex: 1;
@@ -101,19 +107,20 @@ const Social = styled.div`
   display: flex;
   align-items: center;
   gap: 1rem;
-
   p {
     font-size: 0.9rem;
+    @media (max-width: 690px) {
+      font-size: 0.7rem;
+    }
   }
-
   .social-icons {
     display: flex;
     align-items: center;
+    gap: 1rem;
     span {
-      margin: 0.5rem;
       width: 2.3rem;
       height: 2rem;
-      clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+      clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
       background-color: #01be96;
       position: relative;
       transition: transform 400ms ease-in-out;
@@ -131,16 +138,22 @@ const Social = styled.div`
   }
 `;
 const Profile = styled.div`
-  filter: drop-shadow(0px 10px 10px #01be9570);
+    filter: drop-shadow(0px 10px 10px #01be9570);
   img {
     width: 25rem;
-    transition: transform 400ms ease-in-out;
     clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-
-
-}
-  :hover {
+    transition: transform 400ms ease-in-out;
+    @media (max-width: 790px) {
+      width: 20rem;
+    }
+    @media (max-width: 660px) {
+      width: 18rem;
+    }
+    @media (max-width: 640px) {
+      width: 100%;
+    }
+  }
+  :hover img {
     transform: translateY(-10px);
   }
 `;
-//
