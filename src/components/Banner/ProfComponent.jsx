@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import { AiOutlineGithub } from "react-icons/ai";
-import { AiOutlineInstagram} from "react-icons/ai";
+import { FaGithub } from "react-icons/fa";
+import { FaInstagram } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
 
 export const ProfComponent = () => {
@@ -25,12 +25,12 @@ export const ProfComponent = () => {
           <div className="social-icons">
             <span>
               <a href="#">
-                <AiOutlineGithub />
+                <FaGithub />
               </a>
             </span>
             <span>
               <a href="#">
-                <AiOutlineInstagram />
+                <FaInstagram />
               </a>
             </span>
             <span>
@@ -42,7 +42,10 @@ export const ProfComponent = () => {
         </Social>
       </Texts>
       <Profile>
-        <img src="https://imgur.com/Uvq4Vhg" alt="eu diterno" />
+        <img
+          src="https://lh3.googleusercontent.com/AuLBwayXW33tSEQ7FOKNIEc3f5wQgHryXkHdUqrzw6UX2hO_q7zUcrE70XXgBBjyBMKILWUiENkJNElRIwD2YbGhoxOUAjpvKULc_ATUc_LkgZGcaQzkaTTrNJEtblyN2AR_eP-nONl8gcE7BxjIpJN55ZWfg9mCbbiZDD0tWvIkwXqkmpUJTCaRWShDRqzfdwFQdOIqFB5SlfFu2TYLK3XNABq1TIv4XkqJxPDpLu6zgTLXZdn8R7TCpCXuVCge9H4d9pULHjFI3SyCOZFsGV7ghJciuhnKwtSofIZh7HpGX1TJcrp_ROXjL6hgs3R7CxdkClNNFGrX7EsFFgyYCVdd9AUtGJOFMrw1gcw2ZBtbHtKpefyVq3rYtMh08UGjkT8--Ic_VKxoffoULM_TjzhQbo7H-sSseb80aDn4oqalT6kQEYsGEYSJJgkd4vDHg00feV0yB4tvZgcysQSj3mUFY1R22Jv0IIg13iIzpVuM_sKuDr2G_9q3FTdYNPaUX9UgxKJSL4W0RfzSVKPtvKa82YJ2UDD8iDmhWhtJBB3qDpNS3QWV-1jOvEYZLURZug7WyKDh4c_S64zAPMk6X8O7bzhDDF0wSuJXWXhRmpMonAgFqnqTeoZqpGenrwKw9kD-_sNY6aBMGz1cuSIG1TYV9AaiYoUazbIgP67VxCj2S2sOsFLJ29u3MRu8kfvUDnkkh5CkI3-QQdZDDsLCVvhaSn75CfoGQgquN90FjmvLp5UuRA_wkznCMWgm_KRFmQrknioM0vRntePct3F5F9-YRxxifSDzp7jqIS7s0NAwd-uVO_Ro1h3DlDKl6K2cFFIO_LU8xMaBpywrJlz-DCIO2bjE3NvMPXuZG9she3f9SBVl4zuJo2oDstop2ludmY-Fq3P35fYmixIFUuB8Hd96NXwV5DMzZUEY_laKIaibew=w516-h696-s-no?authuser=0"
+          alt="me"
+        />
       </Profile>
     </Container>
   );
@@ -50,14 +53,20 @@ export const ProfComponent = () => {
 
 export default ProfComponent;
 
-// structure
 const Container = styled.div`
   display: flex;
   gap: 2rem;
-  padding-top: 2rem;
+  padding-top: 3rem;
   width: 80%;
   max-width: 1280px;
   margin: 0 auto;
+  z-index: 1;
+  @media (max-width: 840px) {
+    width: 90%;
+  }
+  @media (max-width: 640px) {
+    flex-direction: column;
+  }
 `;
 const Texts = styled.div`
   flex: 1;
@@ -87,9 +96,9 @@ const Texts = styled.div`
     border: none;
     color: #fff;
     font-weight: 500;
-    filter: drop-shadow(0px 10px 10pc #01be9551);
+    filter: drop-shadow(0px 10px 10px #01be9551);
     :hover {
-      filter: drop-shadow(0px 10px 10pc #01be9570);
+      filter: drop-shadow(0px 10px 10px #01be9570);
     }
   }
 `;
@@ -98,11 +107,12 @@ const Social = styled.div`
   display: flex;
   align-items: center;
   gap: 1rem;
-
   p {
     font-size: 0.9rem;
+    @media (max-width: 690px) {
+      font-size: 0.7rem;
+    }
   }
-
   .social-icons {
     display: flex;
     align-items: center;
@@ -110,9 +120,9 @@ const Social = styled.div`
     span {
       width: 2.3rem;
       height: 2rem;
-      clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+      clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
       background-color: #01be96;
-      position: absolute;
+      position: relative;
       transition: transform 400ms ease-in-out;
       :hover {
         transform: rotate(360deg);
@@ -128,13 +138,22 @@ const Social = styled.div`
   }
 `;
 const Profile = styled.div`
+    filter: drop-shadow(0px 10px 10px #01be9570);
   img {
     width: 25rem;
-    filter: drop-shadow(0px 10px 10px #01be9570);
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
     transition: transform 400ms ease-in-out;
+    @media (max-width: 790px) {
+      width: 20rem;
+    }
+    @media (max-width: 660px) {
+      width: 18rem;
+    }
+    @media (max-width: 640px) {
+      width: 100%;
+    }
   }
-  :hover {
+  :hover img {
     transform: translateY(-10px);
   }
 `;
-//

@@ -12,7 +12,7 @@ const Header = () => {
         </span>
         <h1>Portfolio</h1>
       </Logo>
-      <Nav>
+      <Nav bar={bar}>
         <span>
           <a href="#">Home</a>
         </span>
@@ -46,7 +46,9 @@ const Container = styled.div`
   width: 80%;
   margin: 0 auto;
   padding: 1.5rem 0;
-  @media (max-width: 763px) {
+  position: relative;
+  animation: header 500ms ease-in-out;
+  @media (max-width: 840px) {
     width: 90%;
   }
   .bars {
@@ -60,18 +62,20 @@ const Container = styled.div`
       display: flex;
       align-items: center;
       justify-content: center;
+      padding: 0.5rem;
+      z-index: 100;
       .bar {
         position: absolute;
         width: 100%;
-        height: 100%;
-        background: ${(props) => (props.bar ? "transparent" : "#fff")};
+        height: 2px;
+        background-color: ${(props) => (props.bar ? "transparent" : "#fff")};
         transition: all 400ms ease-in-out;
-        ::before,
+        :before,
         :after {
           content: "";
           width: 100%;
           height: 2px;
-          background: #fff;
+          background-color: #fff;
           position: absolute;
         }
         :before {
@@ -79,7 +83,7 @@ const Container = styled.div`
             props.bar ? "rotate(45deg)" : "translateY(10px)"};
           transition: all 400ms ease-in-out;
         }
-        :before {
+        :after {
           transform: ${(props) =>
             props.bar ? "rotate(-45deg)" : "translateY(-10px)"};
           transition: all 400ms ease-in-out;
@@ -102,7 +106,7 @@ const Logo = styled.div`
 `;
 const Nav = styled.div`
   @media (max-width: 640px) {
-    position: absolute;
+    position: fixed;
     display: flex;
     flex-direction: column;
     background-color: #01be96;
@@ -114,10 +118,11 @@ const Nav = styled.div`
     font-weight: 700;
     height: ${(props) => (props.bar ? "100vh" : 0)};
     transition: height 400ms ease-in-out;
-    over-flow: hidden;
+    overflow: hidden;
+    z-index: 100;
   }
   span {
-    margin: 20px;
+    margin-left: 1rem;
     a {
       color: #fff;
       text-decoration: none;
