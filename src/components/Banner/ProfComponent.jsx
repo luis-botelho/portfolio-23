@@ -14,17 +14,19 @@ export const ProfComponent = () => {
         <h1 className="green">Luis Botelho</h1>
         <h3>Fullstack Developer</h3>
         <p>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Assumenda
-          amet ducimus eius nulla, explicabo, omnis labore necessitatibus
-          laudantium, quibusdam ab quasi tempore at eaque earum id quo eos culpa
-          optio?
+          Aspiring software engineer from Brazil with experience in programming
+          languages, databases, and Scrum methodology. Specializes in UI/UX,
+          testing, and frameworks like React and NodeJS. Aims to become an
+          expert in the field and create impactful applications. Culturally
+          diverse experiences contribute to thinking outside the box to develop
+          innovative solutions.
         </p>
         <button>Let's talk</button>
         <Social>
           <p>Check out my</p>
           <div className="social-icons">
             <span>
-              <a href="#">
+              <a href="https://github.com/luis-botelho" target="blank_">
                 <FaGithub />
               </a>
             </span>
@@ -138,7 +140,7 @@ const Social = styled.div`
   }
 `;
 const Profile = styled.div`
-    filter: drop-shadow(0px 10px 10px #01be9570);
+  filter: drop-shadow(0px 10px 10px #01be9570);
   img {
     width: 25rem;
     clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
