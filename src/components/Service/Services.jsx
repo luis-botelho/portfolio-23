@@ -8,36 +8,34 @@ import { Slide } from "react-awesome-reveal";
 
 const Services = () => {
   return (
-    <Container id="service">
-      <Slide direction="down">
-        <h4>
-          My <span className="green">services</span>
-        </h4>
+    <Container id="services">
+      <Slide direction="down" triggerOnce>
+        <h4>System & Product Design</h4>
         <h1>What I Do</h1>
       </Slide>
       <Cards>
-        <Slide direction="left">
+        <Slide direction="left" triggerOnce>
           <Card
             Icon={MdDesignServices}
-            title={"ui/ux designer"}
-            disc={`Lorem ipsum dolor sit amet consectetur 
-                adipisicing elit. Commodi et asperiores cum exercitationem officia rem amet minus magnam? Cum, voluptatem?`}
+            title={"UI/UX Architecture"}
+            borderAccent="var(--accent-cyan)"
+            disc={`Designing clean, component-driven, responsive user interfaces. Focused on performance, design tokens, micro-interactions, and visual storytelling.`}
           />
         </Slide>
-        <Slide direction="up">
+        <Slide direction="up" triggerOnce>
           <Card
             Icon={FiCodesandbox}
-            title={"graphic designer"}
-            disc={`Lorem ipsum dolor sit amet consectetur 
-                adipisicing elit. Commodi et asperiores cum exercitationem officia rem amet minus magnam? Cum, voluptatem?`}
+            title={"Fullstack Engineering"}
+            borderAccent="var(--accent-purple)"
+            disc={`Building scalable server nodes, database structures, security protocols, and robust RESTful/GraphQL APIs using modern NodeJS platforms.`}
           />
         </Slide>
-        <Slide direction="right">
+        <Slide direction="right" triggerOnce>
           <Card
             Icon={CgWebsite}
-            title={"web designer"}
-            disc={`Lorem ipsum dolor sit amet consectetur 
-                adipisicing elit. Commodi et asperiores cum exercitationem officia rem amet minus magnam? Cum, voluptatem?`}
+            title={"Systems Architecture"}
+            borderAccent="var(--accent-pink)"
+            disc={`Configuring cloud environments, Docker containers, Kubernetes orchestrations, CI/CD automated deployments, and caching systems.`}
           />
         </Slide>
       </Cards>
@@ -51,18 +49,33 @@ const Container = styled.div`
   width: 80%;
   max-width: 1280px;
   margin: 0 auto;
-  padding: 3rem 0;
+  padding: 6rem 0 3rem 0;
+  
   @media (max-width: 840px) {
     width: 90%;
   }
 
+  h4 {
+    color: var(--accent-cyan);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 0.5rem;
+  }
+
   h1 {
-    padding-top: 1rem;
+    font-size: 2.8rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    font-family: var(--font-sans);
+    margin-bottom: 1rem;
   }
 `;
+
 const Cards = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   margin-top: 4rem;
-  gap: 1rem;
+  gap: 2rem;
 `;
